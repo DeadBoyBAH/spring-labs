@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tour_firma
+    username: postgres
+    password: postgres
+  profiles:
+    active: dev
+  data:
+    mongodb:
+      database: Country
+      host: host.docker.internal
+      port: 27017
+
+kafka:
+  username: user
+  password: root
+  bootstrap-servers: [ "0.0.0.1", "0.0.0.2" ]

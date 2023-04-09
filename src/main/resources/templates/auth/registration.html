@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<h1 style="text-align: center">Регистрация</h1>
+<form action="#" th:action="@{/auth/registration}" th:object="${userPostForm}" method="post" style="text-align: center">
+    <div class="field">
+        <div>Логин(email): <input type="text" th:field="*{email}"/></div>
+        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+    </div>
+    <div class="field">
+        <div>Пароль: <input type="password" th:field="*{password}"/></div>
+        <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</div>
+    </div>
+
+    <div class="field">
+        <div>Подтвердите пароль: <input type="password" th:field="*{confirmedPassword}"/></div>
+        <div style="color:red" th:if="${#fields.hasErrors('confirmedPassword')}" th:errors="*{password}">password error
+        </div>
+    </div>
+
+    <div class="field">
+        <div>Ваше имя: <input type="text" th:field="*{firstname}"/></div>
+        <div style="color:red" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">firstname error</div>
+    </div>
+
+    <div class="field">
+        <div>Ваша фамилия: <input type="text" th:field="*{lastname}"/></div>
+        <div style="color:red" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">lastname error</div>
+    </div>
+
+    <div>Ваше отчество(если есть): <input type="text" th:field="*{patronymic}"/></div>
+
+    <label>Пол</label>
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="male" name="male" class="custom-control-input" value="M" th:field="*{gender}" checked>
+        <label class="custom-control-label" for="male">Мужской</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="women" name="women" class="custom-control-input" value="W" th:field="*{gender}">
+        <label class="custom-control-label" for="women">Женский</label>
+    </div>
+
+    <div class="field">
+        <div>Телефон: <input type="text" th:field="*{phone}"/></div>
+        <div style="color:red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">phone error</div>
+    </div>
+
+    <div>ЗагранПаспорт(если есть): <input type="text" th:field="*{internationalPassport}"/></div>
+
+    <div class="field">
+        <div>Серия паспорта: <input type="number" th:field="*{passportSeries}"/></div>
+        <div style="color:red" th:if="${#fields.hasErrors('passportSeries')}" th:errors="*{passportSeries}">
+            passportSeries error
+        </div>
+    </div>
+
+    <div class="field">
+        <div>Номер паспорта: <input type="number" th:field="*{passportNumber}"/></div>
+        <div style="color:red" th:if="${#fields.hasErrors('passportNumber')}" th:errors="*{passportNumber}">
+            passportNumber error
+        </div>
+    </div>
+
+    <div>Дата рождения: <input type="date" th:field="*{birthdate}"/></div>
+
+    <div class="field">
+        <div>Место рождения: <input type="text" th:field="*{birthplace}"/></div>
+        <div style="color:red" th:if="${#fields.hasErrors('birthplace')}" th:errors="*{birthplace}">birtplace error
+        </div>
+    </div>
+    <p><input type="submit" value="Зарегистрироваться"/> <input type="reset" value="Очистить"/><a
+            th:href="@{/auth/login}">Войти</a></p>
+</form>
+</body>
+</html>

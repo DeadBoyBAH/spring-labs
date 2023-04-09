@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" xmlns:th="http://www.thymeleaf.org">
+  <title>Вход в систему</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <form class="form-signin" method="post" action="/auth/login">
+    <h2 class="form-signin-heading">Вход</h2>
+    <p>
+      <label for="username">Логин</label>
+      <input type="text" id="username" name="username" class="form-control" placeholder="Логин" required>
+    </p>
+    <p>
+      <label for="password">Пароль</label>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Пароль" required>
+    </p>
+    <div class="buttons">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+      <a th:href="@{/auth/registration}">Зарегистрироваться</a>
+    </div>
+  </form>
+</div>
+</body>
+</html>

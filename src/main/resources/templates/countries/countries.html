@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Страны</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/countries.css}">
+</head>
+<body >
+<div class="hero" th:style="'background:url('+ @{/images/background-index.jpg} +'); background-repeat: no-repeat; background-size: 100%;'">
+  <div class="head">
+    <table cellspacing="10px">
+      <tr>
+        <td><a th:href="@{/index}" class="a_embleme"><img width="40px" th:src="@{/images/logo.png}" alt=""></a></td>
+        <td>
+          <select class="select-css" onchange="window.location.href = this.options[this.selectedIndex].value">
+            <option selected value>О компании</option>
+            <option value="google.com">Отзывы клиентов</option>
+          </select>
+        </td>
+        <td><a href="google.com">Контакты</a></td>
+        <td style="padding-left: 1000px"><a th:href="@{/auth/logout}">Выйти</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="subhead">
+    <table cellspacing="15px">
+      <tr>
+        <td><a th:href="@{/countries}">Страны</a></td>
+        <td><a th:href="@{/tours}">Туры</a></td>
+        <td><a href="">Скидки</a></td>
+        <td><a href="">Оставить отзыв</a></td>
+      </tr>
+    </table>
+
+    <p class="phone">+79156056393</p>
+  </div>
+</div>
+
+<div class="main-body">
+  <h2 class="all_countries">
+    Все страны
+  </h2>
+  <div class="tables">
+    <table class="table">
+      <thead>
+      <td>Европа</td>
+      </thead>
+      <tbody>
+      <tr th:each="country: ${countries}">
+        <td th:if="${country.partWorld == 'ЕВРОПА'}"><a th:href="@{/countries/{id}(id=${country.id})}"><p th:text="${country.name}"></p></a></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="table">
+      <thead>
+      <td>Азия</td>
+      </thead>
+      <tbody>
+      <tr th:each="country: ${countries}">
+        <td th:if="${country.partWorld == 'АЗИЯ'}"><a th:href="@{/countries/{id}(id=${country.id})}"><p th:text="${country.name}"></p></a></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="table">
+      <thead>
+      <td>Америка</td>
+      </thead>
+      <tbody>
+      <tr th:each="country: ${countries}">
+        <td th:if="${country.partWorld == 'АМЕРИКА'}"><a th:href="@{/countries/{id}(id=${country.id})}"><p th:text="${country.name}"></p></a></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="table">
+      <thead>
+      <td>Африка</td>
+      </thead>
+      <tbody>
+      <tr th:each="country: ${countries}">
+        <td th:if="${country.partWorld == 'АФРИКА'}"><a th:href="@{/countries/{id}(id=${country.id})}"><p th:text="${country.name}"></p></a></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="table">
+      <thead>
+      <td>Океания</td>
+      </thead>
+      <tbody>
+      <tr th:each="country: ${countries}">
+        <td th:if="${country.partWorld == 'ОКЕАНИЯ'}"><a th:href="@{/countries/{id}(id=${country.id})}"><p th:text="${country.name}"></p></a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
